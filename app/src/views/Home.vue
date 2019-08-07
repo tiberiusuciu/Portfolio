@@ -10,8 +10,23 @@
       <div class="darken">
         <div class="vertical-middle">
           <h2>
-            I build device agnostic websites and applications
+            I provide custom professional websites and applications for your:
+            <!-- I build device agnostic websites and applications -->
           </h2>
+          <div class="list-area">
+            <ul>
+              <li>Blog</li>
+              <li>Portfolio</li>
+              <li>Restaurant</li>
+            </ul>
+          </div>
+          <div class="list-area">
+            <ul>
+              <li>E-Commerce</li>
+              <li>Personal projects</li>
+              <li>Favourite cat pictures</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -19,8 +34,18 @@
       <div class="vertical-middle">
         <template v-if="!hasSent && !isSending">
           <h3>Let's get in touch and see how may I help you</h3>
-          <input type="text" placeholder="Name" v-model="name">
-          <input type="text" placeholder="Email" v-model="email">
+          <div class="input-box">
+            <div>
+              <i class="fal fa-user"></i>
+            </div>
+            <input type="text" placeholder="Name" v-model="name">
+          </div>
+          <div class="input-box">
+            <div>
+              <i class="fal fa-at"></i>
+            </div>
+            <input type="text" placeholder="Email" v-model="email">
+          </div>
           <textarea placeholder="Just a few words about what you need" v-model="description"></textarea>
           <div class="send" @click="sendEmail">Submit</div>
         </template>
@@ -56,6 +81,9 @@
     },
     methods: {
       sendEmail() {
+        if (this.name === "" || this.email === "" || this.description === "") {
+          return;
+        }
         this.isSending = true;
         axios.post('http://localhost:3000/contact', {
           name: this.name,
@@ -126,8 +154,8 @@
     height: 100%;
     box-sizing: border-box;
   }
-  input, textarea {
-    display: block;
+  .input-box, textarea {
+    display: flex;
     margin: auto;
     width: 350px;
     height: 60px;
@@ -135,10 +163,29 @@
     color: white;
     border: 1px solid white;
     margin-top: 30px;
-    padding: 0px 20px;
-    outline: none;
     border-radius: 5px;
     box-sizing: border-box;
+  }
+
+  .input-box div {
+    display: inline-block;
+
+    width: 50px;
+    height: 60px;
+    color: white;
+    line-height: 60px;
+  }
+
+  .input-box input {
+    flex: 1;
+    /* height: 60px; */
+    background-color: #222;
+    color: white;
+    padding: 0px 20px 0px 0px;
+    outline: none;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
   }
 
   input::placeholder, textarea::placeholder {
@@ -149,6 +196,7 @@
     resize: none;
     height: 120px;
     padding: 22px 20px;
+    outline: none;
   }
 
   .send {
@@ -197,6 +245,22 @@
     animation: half-circle-spinner-animation 1s infinite alternate;
   }
 
+  .list-area {
+    display: inline-block;
+    margin-top: 60px;
+    color: white;
+    text-align: center;
+  }
+
+  .list-area ul {
+    list-style-type: none;
+    width: 250px;
+  }
+
+  .list-area li {
+    height: 60px;
+  }
+
   @keyframes half-circle-spinner-animation {
     0% {
       transform: rotate(0deg);
@@ -210,6 +274,31 @@
   @media screen and (max-height: 440px) {
     .small-screen-adjusted {
       box-sizing: content-box; padding: 150px 0px;
+    }
+
+    .list-area {
+      margin-top: 0px;
+    }
+
+  }
+
+  @media screen and (max-height: 900px) {
+    .list-area {
+      margin-top: 0px;
+    }
+
+    .list-area:first-of-type {
+      margin-top: 30px;
+    }
+  }
+
+  @media screen and (max-height: 900px) and (max-width: 500px){
+    .list-area {
+      margin-top: 0px;
+    }
+
+    .list-area:first-of-type {
+      margin-top: 30px;
     }
   }
 </style>
