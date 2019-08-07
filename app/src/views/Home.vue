@@ -1,17 +1,16 @@
 <template>
-  <div>
+  <div ref="home_container" class="home-container" v-scroll="handleScroll">
     <div class="big-bg">
       <div class="vertical-middle">
         <h1>Tiberiu Cristian Suciu</h1>
         <p>&middot; Software Enginneer Student &middot;</p>
       </div>
     </div>
-    <div class="image-sector">
+    <div class="image-sector" ref="first_image">
       <div class="darken">
         <div class="vertical-middle">
           <h2>
             I provide custom professional websites and applications for your:
-            <!-- I build device agnostic websites and applications -->
           </h2>
           <div class="list-area">
             <ul>
@@ -30,6 +29,15 @@
         </div>
       </div>
     </div>
+    <!-- <div class="image-sector">
+      <div class="darken">
+        <div class="vertical-middle">
+          <h2>
+            Another test
+          </h2>
+        </div>
+      </div>
+    </div> -->
     <div class="big-bg small-screen-adjusted">
       <div class="vertical-middle">
         <template v-if="!hasSent && !isSending">
@@ -103,6 +111,32 @@
           
         })
         .catch(error => console.log(error))
+      },
+      handleScroll (evt, el) {
+        // if (!this.$refs.first_image) {
+        //   return false
+        // }
+
+        // const emissionYOfsset = this.$refs.first_image.offsetTop
+
+        // // Change this condition in order to fit your requirements
+        // if (window.scrollY + window.innerHeight >= emissionYOfsset &&
+        //   window.scrollY <= emissionYOfsset) {
+        //   console.log('currently in screen')
+
+        //   // Do you want to continue with the event?
+        //   return false
+        // }
+        // // first parallax image went past screen
+        
+        // else if (window.scrollY > emissionYOfsset + window.innerHeight * .75 && window.matchMedia("(max-height: 900px), (max-width: 900px)")) {
+        //   console.log('welp', this.$refs.home_container.style);
+        //   this.$refs.home_container.style.backgroundImage = 'url("https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")';
+        // }
+        // else {
+        //   this.$refs.home_container.style.backgroundImage = 'url("https://images.unsplash.com/photo-1565052203907-63dc4685cf58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")';
+        //   console.log('currently NOT in screen');
+        // }
       }
     }
   }
@@ -110,6 +144,9 @@
 </script>
 
 <style scoped>
+  .home-container {
+    
+  }
   .big-bg, .white-sector, .image-sector {
     position: relative;
     box-sizing: border-box;
@@ -140,7 +177,7 @@
   .image-sector {
     height: 75vh;
     background-image: url("https://images.unsplash.com/photo-1565052203907-63dc4685cf58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
-
+/* https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80 */
     min-height: 500px; 
 
     background-attachment: fixed;
@@ -178,7 +215,6 @@
 
   .input-box input {
     flex: 1;
-    /* height: 60px; */
     background-color: #222;
     color: white;
     padding: 0px 20px 0px 0px;
@@ -301,4 +337,35 @@
       margin-top: 30px;
     }
   }
+  
+  @media screen and (max-height: 900px), (max-width: 900px){
+    .list-area {
+      margin-top: 0px;
+    }
+
+    .list-area:first-of-type {
+      margin-top: 30px;
+    }
+
+    .home-container {
+      height: 100vh;
+      background-image: url("https://images.unsplash.com/photo-1565052203907-63dc4685cf58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+
+      min-height: 500px; 
+
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      overflow-y: auto;
+    }
+
+
+    .image-sector {
+      height: 75vh;
+      background-image: none;
+      min-height: 500px; 
+    }
+  }
+
 </style>
