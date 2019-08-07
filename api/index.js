@@ -44,7 +44,7 @@ app.post('/contact', (req, res) => {
     // setup email data with unicode symbols
     let mailOptions = {
         from: '"Portfolio" <tiberius.portfolio.bot@gmail.com>', // sender address
-        to: userform.email, // list of receivers
+        to: 'tiberiu.cristian.suciu@gmail.com', // list of receivers
         subject: 'New contact submit', // Subject line
         text: 'Hello world?', // plain text body
         html: output // html body
