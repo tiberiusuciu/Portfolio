@@ -10,7 +10,7 @@
       <div class="darken">
         <div class="vertical-middle">
           <h2>
-            I provide custom professional websites and applications for your:
+            I provide tailor-made websites and applications for your:
           </h2>
           <div class="list-area">
             <ul>
@@ -41,7 +41,7 @@
     <div class="big-bg small-screen-adjusted">
       <div class="vertical-middle">
         <template v-if="!hasSent && !isSending">
-          <h3>Let's get in touch and see how may I help you</h3>
+          <h3>Let's talk and see how may I help you</h3>
           <div class="input-box">
             <div>
               <i class="fal fa-user"></i>
@@ -162,6 +162,18 @@
     text-align: center;
     width: 100%;
   }
+  h1 {
+    animation-duration: 3s;
+    animation-name: fadein;
+    font-weight: lighter;
+  }
+  p {
+    opacity: 0;
+    animation-delay: 1.25s;
+    animation-duration: 3s;
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+  }
   h1, p {
     color: white;
     margin-top: 30px;
@@ -169,6 +181,7 @@
   h2, h3 {
     color: white;
     padding: 0px 20px;
+    font-weight: normal;
   }
   .white-sector {
     height: 50vh;
@@ -215,7 +228,7 @@
 
   .input-box input {
     flex: 1;
-    background-color: #222;
+    background-color: transparent;
     color: white;
     padding: 0px 20px 0px 0px;
     outline: none;
@@ -304,6 +317,16 @@
     }
     100%{
       transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
     }
   }
 
