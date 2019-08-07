@@ -12,7 +12,6 @@
 * {
   margin: 0px;
   padding: 0px;
-  user-select: none;
 }
 
 html {

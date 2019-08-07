@@ -41,7 +41,7 @@
     <div class="big-bg small-screen-adjusted">
       <div class="vertical-middle">
         <template v-if="!hasSent && !isSending">
-          <h3>Let's talk and see how may I help you</h3>
+          <h3>Let's talk and see how I may help you</h3>
           <div class="input-box">
             <div>
               <i class="fal fa-user"></i>
@@ -177,11 +177,13 @@
   h1, p {
     color: white;
     margin-top: 30px;
+    user-select: none;
   }
   h2, h3 {
     color: white;
     padding: 0px 20px;
     font-weight: normal;
+    user-select: none;
   }
   .white-sector {
     height: 50vh;
@@ -259,7 +261,8 @@
     border-radius: 5px;
     cursor: pointer;
     background: rgb(238,174,202);
-    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    user-select: none;
   }
 
   .half-circle-spinner, .half-circle-spinner * {
@@ -308,6 +311,7 @@
 
   .list-area li {
     height: 60px;
+    user-select: none;
   }
 
   @keyframes half-circle-spinner-animation {
@@ -380,6 +384,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      -webkit-overflow-scrolling: touch;
       overflow-y: auto;
     }
 
