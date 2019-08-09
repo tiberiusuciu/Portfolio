@@ -3,7 +3,7 @@
     <div class="big-bg">
       <div class="vertical-middle">
         <h1>Tiberiu Cristian Suciu</h1>
-        <p>&middot; Web Designer & Developper &middot;</p>
+        <p>&middot; Web Designer & Developer &middot;</p>
       </div>
     </div>
     <div class="image-sector" ref="first_image">
